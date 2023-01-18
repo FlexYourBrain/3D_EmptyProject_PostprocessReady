@@ -72,31 +72,34 @@ function update(self)
     render.set_viewport(0, 0, render.get_window_width(), render.get_window_height())
 
     -- render models
+    --
     render.set_blend_func(render.BLEND_SRC_ALPHA, render.BLEND_ONE_MINUS_SRC_ALPHA)
     render.enable_state(render.STATE_CULL_FACE)
     render.enable_state(render.STATE_DEPTH_TEST)
     render.set_depth_mask(true)
-    render.draw(self.model_pred, {constants = constants})
-    -- debug rendering models
+    render.draw(self.model_pred)
+    render.set_depth_mask(false)
     render.disable_state(render.STATE_DEPTH_TEST)
-    render.disable_state(render.STATE_CULL_FACE)    
-    render.draw_debug3d()
+    render.disable_state(render.STATE_CULL_FACE)
 
-    -- SPRITE + LABEL + PARTICLE 3d space
+    -- render sprites+ label + particles
+    --
     render.set_blend_func(render.BLEND_SRC_ALPHA, render.BLEND_ONE_MINUS_SRC_ALPHA)
     render.enable_state(render.STATE_DEPTH_TEST)
     render.enable_state(render.STATE_STENCIL_TEST)
     render.enable_state(render.STATE_BLEND)
-    render.draw(self.particle_pred)
     render.draw(self.tile_pred)
-    render.disable_state(render.STATE_DEPTH_TEST)
-    render.disable_state(render.STATE_STENCIL_TEST)
+    render.draw(self.particle_pred)
     render.disable_state(render.STATE_BLEND)
-    render.draw_debug3d()
+    render.disable_state(render.STATE_STENCIL_TEST)
+    render.disable_state(render.STATE_DEPTH_TEST)
     if self.pp_On then
         render.disable_render_target(self.postprocess)
         render_pp(self)
     end
+
+    -- debug
+    render.draw_debug3d()
 
     -- render GUI
     render.set_view(vmath.matrix4())
