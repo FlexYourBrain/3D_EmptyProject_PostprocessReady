@@ -6,19 +6,6 @@ embedded_instances {
   data: "components {\n"
   "  id: \"default_camera\"\n"
   "  component: \"/render/default_camera.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"camera\"\n"
@@ -28,37 +15,11 @@ embedded_instances {
   "near_z: 0.1\\n"
   "far_z: 1000.0\\n"
   "auto_aspect_ratio: 1\\n"
-  "orthographic_projection: 0\\n"
-  "orthographic_zoom: 1.0\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
   position {
-    x: 0.0
-    y: 0.0
     z: 5.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 embedded_instances {
@@ -66,40 +27,38 @@ embedded_instances {
   data: "embedded_components {\n"
   "  id: \"pp_screen\"\n"
   "  type: \"model\"\n"
-  "  data: \"mesh: \\\"/builtins/assets/meshes/quad_2x2.dae\\\"\\n"
-  "material: \\\"/post/pp_default.material\\\"\\n"
-  "skeleton: \\\"\\\"\\n"
-  "animations: \\\"\\\"\\n"
-  "default_animation: \\\"\\\"\\n"
+  "  data: \"mesh: \\\"/builtins/assets/gltf/quad_2x2.gltf\\\"\\n"
   "name: \\\"unnamed\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"default\\\"\\n"
+  "  material: \\\"/post/pp_default.material\\\"\\n"
+  "}\\n"
   "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "}\n"
   ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
+}
+embedded_instances {
+  id: "model"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/builtins/assets/gltf/cube.gltf\\\"\\n"
+  "name: \\\"{{NAME}}\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"default\\\"\\n"
+  "  material: \\\"/builtins/materials/model.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/builtins/assets/images/logo/logo_256.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.23336533
+    y: -0.3870246
+    z: -0.10191519
+    w: 0.8862087
   }
 }
